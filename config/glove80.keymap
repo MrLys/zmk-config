@@ -76,6 +76,26 @@
                 , <&macro_release &kp LSFT>
                 ;
           
+    
+    };
+
+   undead_tick: undead_tick {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSFT>
+                , <&macro_tap &kp EQUAL &kp EQUAL>
+                , <&macro_release &kp LSFT>
+                ;
+    };
+   : undead_tick {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSFT>
+                , <&macro_tap &kp EQUAL &kp EQUAL>
+                , <&macro_release &kp LSFT>
+                ;
     };
   };
 };
@@ -103,7 +123,7 @@
         SHIFT_MORPH(dv_bslh, &kp GRAVE, &kp EQUAL) // \ |
         SHIFT_MORPH(dv_fslh, &kp LS(N7), &kp LS(MINUS)) // / ?
         SHIFT_MORPH(dv_minus, &kp FSLH, &kp LS(FSLH)) // / ?
-        SHIFT_MORPH(dv_ticks, &kp LS(EQUAL), &kp LS(N3)) // / ?
+        SHIFT_MORPH(dv_ticks, &undead_tick, &kp LS(N3)) // / ?
 
         ALT_MORPH(dv_a, &kp A, &kp LBKT)
         ALT_MORPH(dv_o, &kp O, &kp SQT)
@@ -170,12 +190,12 @@
 
         lower_layer {
             bindings = <
-            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                           &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
-            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR     &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
-            &trans            &none               &none           &kp UP          &none           &kp END                                                                               &kp RPAR     &kp KP_N7    &dv_ticks    &kp KP_N9     &kp KP_MINUS    &kp SLCK
-            &trans            &dv_perc            &dv_7           &dv_5           &dv_3           &dv_1                                                                                 &dv_9        &dv_0        &dv_2        &dv_4         &dv_6           &dv_8
-            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to DEFAULT &trans      &trans      &trans    &kp COMMA    &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &trans                 &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
+            &kp C_BRI_DN      &kp C_BRI_UP        &kp C_PREV      &kp C_NEXT      &kp C_PP                                                                                                              &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP  &none           &kp PAUSE_BREAK
+            &trans            &none               &none           &none           &none           &kp HOME                                                                              &kp LPAR        &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp PSCRN
+            &kp LA(TAB)       &dv_semi            &none           &kp UP          &none           &kp END                                                                               &kp RPAR        &kp TAB      &dv_ticks    &kp KP_N9     &kp KP_MINUS    &kp SLCK
+            &trans            &dv_perc            &dv_7           &dv_5           &dv_3           &dv_1                                                                                 &dv_9           &dv_0        &dv_2        &dv_4         &dv_6           &dv_8
+            &trans            &kp K_CMENU         &none           &kp F11         &kp F12         &kp PG_DN       &trans      &trans      &to DEFAULT &trans      &trans      &trans    &dv_dlr         &undead_caret    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
+            &trans            &kp CAPS            &kp INS         &kp F11         &kp F12                         &trans      &trans      &trans      &trans      &trans      &kp LSFT                  &kp KP_N0    &kp KP_N0    &kp KP_DOT    &kp KP_ENTER    &trans
             >;
         };
 
